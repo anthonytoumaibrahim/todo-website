@@ -1,14 +1,18 @@
+let todos = [];
+
+const no_todos = document.querySelector(".no-todos");
+const add_todo_form = document.querySelector(".add-todo-form");
+const add_todo_button = document.querySelector(".add-todo-button");
+
 // Check if user is not logged in
 if (
   localStorage.username !== window.user_credentials.username &&
   localStorage.password !== window.user_credentials.password
 ) {
   window.location.replace("./login.html");
+} else {
+  add_todo_button.removeAttribute("disabled");
 }
-
-let todos = [];
-
-const no_todos = document.querySelector(".no-todos");
 
 // Load stored todos
 const storedTodos = JSON.parse(localStorage.todos ?? "[]");
@@ -22,6 +26,9 @@ function storeTodos(array) {
 }
 
 function addToDo(value = "", checked = false) {
+  if(value.trim() === "") {
+    return;
+  }
   const todo_id = todos.length + 1;
   todos = [
     ...todos,
@@ -77,9 +84,6 @@ function checkTodo(id) {
   );
   storeTodos(todos);
 }
-
-const add_todo_form = document.querySelector(".add-todo-form");
-const add_todo_button = document.querySelector(".add-todo-button");
 
 add_todo_button.addEventListener("click", () => {
   add_todo_form.classList.toggle("hide");

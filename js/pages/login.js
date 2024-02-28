@@ -1,3 +1,11 @@
+// Check if user is logged in
+if (
+  localStorage.username === window.user_credentials.username &&
+  localStorage.password === window.user_credentials.password
+) {
+  window.location.replace("./index.html");
+}
+
 const form = document.querySelector(".login-form");
 const error_message = document.getElementById("error-message");
 
