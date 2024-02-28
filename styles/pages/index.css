@@ -15,10 +15,16 @@
   width: 100%;
   background-color: #ffffff;
   border-radius: var(--radius-sm);
+  border: 1px solid var(--light-alt-color);
   display: flex;
   align-items: center;
   gap: 20px;
   padding: 10px 20px;
+}
+.todo:not(.todo-done):hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #ffffff;
 }
 .todo .todo-text {
   width: 100%;
