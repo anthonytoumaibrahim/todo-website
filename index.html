@@ -40,15 +40,22 @@
     <section class="container">
       <div class="todos-header margin-bottom-sm">
         <h2>My Todo List</h2>
-        <button class="button"><i class="fa-solid fa-plus"></i> Add New</button>
+        <button class="button add-todo-button">
+          <span class="button-text-add"><i class="fa-solid fa-plus"></i> Add New</span>
+          <span class="button-text-cancel hide"><i class="fa-solid fa-times"></i> Cancel</span>
+        </button>
       </div>
+      <form action="" class="add-todo-form margin-bottom-sm hide">
+        <input
+          type="text"
+          class="form-input"
+          placeholder="Enter your todo, then press Enter to add it"
+        />
+      </form>
       <div class="todos">
-        <!-- <div class="todo todo-done">
-          <i class="fa-solid fa-check checked-todo"></i>
-          <p>Take out trash</p>
-          <i class="fa-solid fa-trash delete-todo"></i>
-        </div> -->
-        <p class="text-muted text-center">You don't have any todos right now.</p>
+        <p class="no-todos">
+          You don't have any todos right now.
+        </p>
       </div>
     </section>
   </body>

@@ -82,7 +82,6 @@ nav {
   display: inline-block;
   border: none;
   background-color: var(--primary-color);
-  margin-top: var(--margin-sm);
   padding: 15px 30px;
   color: #ffffff;
   border-radius: var(--radius-sm);

@@ -20,7 +20,12 @@
   gap: 20px;
   padding: 10px 20px;
 }
+.todo .todo-text {
+  width: 100%;
+  cursor: pointer;
+}
 .todo .delete-todo {
+  cursor: pointer;
   margin-left: auto;
   color: var(--error-color);
 }
@@ -35,4 +40,8 @@
 }
 .todo-done p {
   text-decoration: line-through;
+}
+.no-todos {
+  text-align: center;
+  color: var(--muted-color);
 }
