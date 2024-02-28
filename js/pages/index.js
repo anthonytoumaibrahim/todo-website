@@ -1,9 +1,8 @@
-// Check if user is logged in
+// Check if user is not logged in
 if (
   localStorage.username !== window.user_credentials.username &&
   localStorage.password !== window.user_credentials.password
 ) {
-  // Redirect to login page
   window.location.replace("./login.html");
 }
 
@@ -11,6 +10,7 @@ let todos = [];
 
 const no_todos = document.querySelector(".no-todos");
 
+// Load stored todos
 const storedTodos = JSON.parse(localStorage.todos ?? "[]");
 if (storedTodos.length > 0) {
   no_todos.classList.toggle("hide", true);
@@ -35,7 +35,9 @@ function addToDo(value = "", checked = false) {
   todo.classList.add("todo");
   todo.dataset.id = todo_id;
   todo.id = `todo_${todo_id}`;
-  if (checked) todo.classList.add("todo-done");
+  if (checked) {
+    todo.classList.add("todo-done");
+  }
 
   const check_icon = document.createElement("i");
   check_icon.classList.add("fa-solid", "fa-check", "checked-todo");

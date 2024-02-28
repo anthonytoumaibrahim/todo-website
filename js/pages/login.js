@@ -1,8 +1,8 @@
 const form = document.querySelector(".login-form");
+const error_message = document.getElementById("error-message");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const error_message = document.getElementById("error-message");
   const [username, password] = [
     document.getElementById("username").value,
     document.getElementById("password").value,
