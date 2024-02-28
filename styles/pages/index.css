@@ -1,0 +1,38 @@
+.todos-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.todos {
+  background-color: var(--light-color);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.todo {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 20px;
+}
+.todo .delete-todo {
+  margin-left: auto;
+  color: var(--error-color);
+}
+.todo .checked-todo {
+  opacity: 0;
+}
+.todo-done .checked-todo {
+  opacity: 1;
+}
+.todo-done {
+  background-color: var(--muted-color);
+}
+.todo-done p {
+  text-decoration: line-through;
+}

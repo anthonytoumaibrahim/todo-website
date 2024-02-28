@@ -79,7 +79,6 @@ nav {
   opacity: 0.5;
 }
 .button {
-  width: 100%;
   display: inline-block;
   border: none;
   background-color: var(--primary-color);
@@ -98,9 +97,6 @@ nav {
 }
 .button:not(:disabled):hover {
   background-color: var(--secondary-color);
-}
-.button i {
-  margin-left: 8px;
 }
 .form-input {
   width: 100%;
