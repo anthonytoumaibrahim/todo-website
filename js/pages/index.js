@@ -1,5 +1,6 @@
 let todos = [];
 
+const todosContainer = document.querySelector(".todos");
 const no_todos = document.querySelector(".no-todos");
 const add_todo_form = document.querySelector(".add-todo-form");
 const add_todo_button = document.querySelector(".add-todo-button");
@@ -69,7 +70,7 @@ function addToDo(value = "", checked = false, important = false) {
   trash_icon.addEventListener("click", () => removeTodo(todo_id));
 
   todo.append(check_icon, important_icon, todo_text, trash_icon);
-  document.querySelector(".todos").appendChild(todo);
+  todosContainer.appendChild(todo);
 
   storeTodos(todos);
   no_todos.classList.toggle("hide", true);
@@ -108,6 +109,12 @@ function emphasisTodo(id) {
   storeTodos(todos);
 }
 
+function deleteAll() {
+  todosContainer.innerHTML = "";
+  storeTodos([]);
+  no_todos.classList.toggle("hide", false);
+}
+
 add_todo_button.addEventListener("click", () => {
   add_todo_form.classList.toggle("hide");
   document
@@ -121,6 +128,10 @@ add_todo_button.addEventListener("click", () => {
 add_todo_form.addEventListener("submit", (event) => {
   event.preventDefault();
   const input = document.querySelector(".add-todo-form input");
-  addToDo(input.value);
+  let important = false;
+  if (input.value.slice(-1) == "!") {
+    important = true;
+  }
+  addToDo(input.value, false, important);
   input.value = "";
 });

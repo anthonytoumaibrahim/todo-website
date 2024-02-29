@@ -45,13 +45,13 @@
   opacity: 1;
 }
 .todo-done {
-  background-color: var(--muted-color);
+  background-color: var(--muted-alt-color);
 }
 .todo-done p {
   text-decoration: line-through;
 }
 .todo-important .emphasis-icn {
-  color: var(--primary-color);
+  color: var(--error-color);
 }
 .no-todos {
   text-align: center;
