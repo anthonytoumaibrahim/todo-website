@@ -110,7 +110,7 @@ function emphasisTodo(id) {
 }
 
 function deleteAll() {
-  todosContainer.innerHTML = "";
+  document.querySelectorAll(".todo").forEach((el) => el.remove());
   storeTodos([]);
   no_todos.classList.toggle("hide", false);
 }
