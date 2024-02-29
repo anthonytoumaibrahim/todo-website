@@ -50,6 +50,9 @@
 .todo-done p {
   text-decoration: line-through;
 }
+.todo-important .emphasis-icn {
+  color: var(--primary-color);
+}
 .no-todos {
   text-align: center;
   color: var(--muted-color);

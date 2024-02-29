@@ -18,7 +18,9 @@ if (
 const storedTodos = JSON.parse(localStorage.todos ?? "[]");
 if (storedTodos.length > 0) {
   no_todos.classList.toggle("hide", true);
-  storedTodos.forEach((todo) => addToDo(todo.value, todo.checked));
+  storedTodos.forEach((todo) =>
+    addToDo(todo.value, todo.checked, todo.important)
+  );
 }
 
 function storeTodos(array) {
@@ -29,6 +31,7 @@ function addToDo(value = "", checked = false) {
   if(value.trim() === "") {
     return;
   }
+function addToDo(value = "", checked = false, important = false) {
   const todo_id = todos.length + 1;
   todos = [
     ...todos,
@@ -36,18 +39,26 @@ function addToDo(value = "", checked = false) {
       id: todo_id,
       value: value,
       checked: checked,
+      important: important,
     },
   ];
   const todo = document.createElement("div");
   todo.classList.add("todo");
   todo.dataset.id = todo_id;
   todo.id = `todo_${todo_id}`;
-  if (checked) {
-    todo.classList.add("todo-done");
-  }
+  if (checked) todo.classList.add("todo-done");
+  if (important) todo.classList.add("todo-important");
 
   const check_icon = document.createElement("i");
   check_icon.classList.add("fa-solid", "fa-check", "checked-todo");
+
+  const important_icon = document.createElement("i");
+  important_icon.classList.add(
+    "fa-solid",
+    "fa-exclamation-circle",
+    "emphasis-icn"
+  );
+  important_icon.addEventListener("click", () => emphasisTodo(todo_id));
 
   const todo_text = document.createElement("p");
   todo_text.innerText = value;
@@ -58,7 +69,7 @@ function addToDo(value = "", checked = false) {
   trash_icon.classList.add("fa-solid", "fa-trash", "delete-todo");
   trash_icon.addEventListener("click", () => removeTodo(todo_id));
 
-  todo.append(check_icon, todo_text, trash_icon);
+  todo.append(check_icon, important_icon, todo_text, trash_icon);
   document.querySelector(".todos").appendChild(todo);
 
   storeTodos(todos);
@@ -84,6 +95,22 @@ function checkTodo(id) {
   );
   storeTodos(todos);
 }
+
+function emphasisTodo(id) {
+  document.getElementById(`todo_${id}`).classList.toggle("todo-important");
+  todos = todos.map((todo) =>
+    todo.id === id
+      ? {
+          ...todo,
+          important: !todo.important,
+        }
+      : todo
+  );
+  storeTodos(todos);
+}
+
+const add_todo_form = document.querySelector(".add-todo-form");
+const add_todo_button = document.querySelector(".add-todo-button");
 
 add_todo_button.addEventListener("click", () => {
   add_todo_form.classList.toggle("hide");
