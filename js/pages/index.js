@@ -27,11 +27,10 @@ function storeTodos(array) {
   localStorage.todos = JSON.stringify(array);
 }
 
-function addToDo(value = "", checked = false) {
-  if(value.trim() === "") {
+function addToDo(value = "", checked = false, important = false) {
+  if (value.trim() === "") {
     return;
   }
-function addToDo(value = "", checked = false, important = false) {
   const todo_id = todos.length + 1;
   todos = [
     ...todos,
@@ -108,9 +107,6 @@ function emphasisTodo(id) {
   );
   storeTodos(todos);
 }
-
-const add_todo_form = document.querySelector(".add-todo-form");
-const add_todo_button = document.querySelector(".add-todo-button");
 
 add_todo_button.addEventListener("click", () => {
   add_todo_form.classList.toggle("hide");
