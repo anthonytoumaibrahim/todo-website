@@ -51,6 +51,7 @@ function addToDo(value = "", checked = false, important = false) {
 
   const check_icon = document.createElement("i");
   check_icon.classList.add("fa-solid", "fa-check", "checked-todo");
+  check_icon.addEventListener("click", () => checkTodo(todo_id));
 
   const important_icon = document.createElement("i");
   important_icon.classList.add(

@@ -29,16 +29,26 @@
 .todo:not(.todo-done):hover .checked-todo {
   opacity: 1;
 }
-.todo .todo-text {
-  width: 100%;
+.todo-text,
+.checked-todo,
+.emphasis-icn,
+.delete-todo {
   cursor: pointer;
 }
-.todo .delete-todo {
-  cursor: pointer;
+.todo-text:hover,
+.checked-todo:hover,
+.emphasis-icn:hover,
+.delete-todo:hover {
+  opacity: 0.75 !important;
+}
+.todo-text {
+  width: 100%;
+}
+.delete-todo {
   margin-left: auto;
   color: var(--error-color);
 }
-.todo .checked-todo {
+.checked-todo {
   opacity: 0.25;
 }
 .todo-done .checked-todo {
